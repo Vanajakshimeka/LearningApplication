@@ -1,7 +1,7 @@
 Installed from Nugget Package Manager
 1. System.Net.Http
 2. Newtonsoft.Json
-3. Microsoft.AspNet.Mvc
+3. Microsoft.AspNet.Mvc **(Installed for Unit Test cases)**
 
 Now fetching Uri from webconfig file of LearningApplication
 
