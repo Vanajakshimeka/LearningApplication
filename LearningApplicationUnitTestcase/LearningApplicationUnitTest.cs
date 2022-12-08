@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace LearningApplicationUnitTestcase
 {
     [TestClass]
-    public class WebApiUnitTest
+    public class LearningApplicationUnitTest
     {
 
         ValuesController controller;
@@ -51,15 +51,6 @@ namespace LearningApplicationUnitTestcase
         public void TestNonMatchingString()
         {
             Assert.AreNotEqual("Test", values.MyString);
-        }
-
-        /// <summary>
-        /// Test case for string are not equal
-        /// </summary>
-        [TestMethod]
-        public void TestNonMatchingStringNegative()
-        {
-            Assert.AreEqual("Test", values.MyString);
         }
 
     }
