@@ -1,10 +1,8 @@
 ﻿using LearningApplication.Models;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Net.Http;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LearningApplication.Controllers
@@ -18,9 +16,9 @@ namespace LearningApplication.Controllers
         public ActionResult Index()
         {
             ValuesModel values = new ValuesModel();
-            using (var client = new HttpClient())
+            using (var client = new HttpClient())        // Installed System.Net.Http from Nuget packages
             {                
-                client.BaseAddress = new Uri("https://localhost:44395/api/");
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["ApiUrl"]);
                 //HTTP API GET
                 var responseTask = client.GetAsync("values");
                 responseTask.Wait();
@@ -29,7 +27,8 @@ namespace LearningApplication.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     string readTask = result.Content.ReadAsStringAsync().Result; // Reading API data
-                    values.MyString = JsonConvert.DeserializeObject<string>(readTask); // Converting JSON to string
+                    values.MyString = JsonConvert.DeserializeObject<string>(readTask); //Installed Newtonsoft.Json from Nuget packages  
+                                                                                      // Converting JSON to string
                 }
             }
             return View(model: values); // passing data to view
