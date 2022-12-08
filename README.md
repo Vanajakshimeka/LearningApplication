@@ -1,5 +1,7 @@
 # LearningApplication
 
+**Reuired Visual Studio to run the application (I used Visual Studio 2019)**
+
 **Installed from Nugget Package Manager**
 
 1. System.Net.Http
